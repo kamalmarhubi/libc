@@ -616,6 +616,7 @@ extern {
     pub fn fstatfs(fd: ::c_int, buf: *mut statfs) -> ::c_int;
     pub fn memrchr(cx: *const ::c_void, c: ::c_int, n: ::size_t) -> *mut ::c_void;
     pub fn syscall(num: ::c_long, ...) -> ::c_long;
+    pub fn sendfile(out_fd: ::c_int, in_fd: ::c_int, offset: *mut off_t, count: ::size_t) -> ::ssize_t;
 }
 
 cfg_if! {
