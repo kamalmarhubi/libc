@@ -607,6 +607,7 @@ f! {
 }
 
 extern {
+    pub fn __errno() -> *mut ::c_int;
     pub fn madvise(addr: *const ::c_void, len: ::size_t, advice: ::c_int)
                    -> ::c_int;
     pub fn ioctl(fd: ::c_int, request: ::c_int, ...) -> ::c_int;
