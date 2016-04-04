@@ -181,3 +181,11 @@ extern {
     #[link_name = "_open_osfhandle"]
     pub fn open_osfhandle(osfhandle: ::intptr_t, flags: ::c_int) -> ::c_int;
 }
+
+pub unsafe fn errno() -> ::c_int {
+    *_errno()
+}
+
+pub unsafe fn set_errno(e: ::c_int) {
+    *_errno() = e;
+}
