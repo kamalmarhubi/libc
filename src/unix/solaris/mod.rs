@@ -744,6 +744,7 @@ f! {
 }
 
 extern {
+    pub fn ___errno() -> *mut ::c_int;
     pub fn stack_getbounds(sp: *mut ::stack_t) -> ::c_int;
     pub fn mincore(addr: *const ::c_void, len: ::size_t,
                    vec: *mut c_char) -> ::c_int;
