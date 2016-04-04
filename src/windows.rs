@@ -103,6 +103,7 @@ pub const S_IREAD: ::c_int = 256;
 extern {}
 
 extern {
+    pub fn _errno() -> *mut ::c_int;
     #[link_name = "_chmod"]
     pub fn chmod(path: *const c_char, mode: ::c_int) -> ::c_int;
     #[link_name = "_wchmod"]
