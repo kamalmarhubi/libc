@@ -543,6 +543,14 @@ extern {
                    winp: *const ::winsize) -> ::pid_t;
 }
 
+pub unsafe fn errno() -> ::c_int {
+    *__errno_location()
+}
+
+pub unsafe fn set_errno(e: ::c_int) {
+    *__errno_location() = e;
+}
+
 cfg_if! {
     if #[cfg(any(target_env = "musl",
                  target_os = "emscripten"))] {

@@ -769,3 +769,10 @@ extern {
     pub fn fdatasync(fd: ::c_int) -> ::c_int;
 }
 
+pub unsafe fn errno() -> ::c_int {
+    *___errno()
+}
+
+pub unsafe fn set_errno(e: ::c_int) {
+    *___errno() = e;
+}

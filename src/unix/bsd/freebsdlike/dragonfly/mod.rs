@@ -117,3 +117,11 @@ extern {
                     -> ::c_int;
     pub fn clock_gettime(clk_id: ::c_ulong, tp: *mut ::timespec) -> ::c_int;
 }
+
+pub unsafe fn errno() -> ::c_int {
+    *__dfly_error()
+}
+
+pub unsafe fn set_errno(e: ::c_int) {
+    *__dfly_error() = e;
+}

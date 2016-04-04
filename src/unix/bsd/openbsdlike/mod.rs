@@ -405,6 +405,14 @@ extern {
                    winp: *mut ::winsize) -> ::pid_t;
 }
 
+pub unsafe fn errno() -> ::c_int {
+    *__errno()
+}
+
+pub unsafe fn set_errno(e: ::c_int) {
+    *__errno() = e;
+}
+
 cfg_if! {
     if #[cfg(target_os = "bitrig")] {
         mod bitrig;

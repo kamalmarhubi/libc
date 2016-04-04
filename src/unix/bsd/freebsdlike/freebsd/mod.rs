@@ -81,6 +81,14 @@ extern {
                      flags: ::c_int) -> ::c_int;
 }
 
+pub unsafe fn errno() -> ::c_int {
+    *__error()
+}
+
+pub unsafe fn set_errno(e: ::c_int) {
+    *__error() = e;
+}
+
 cfg_if! {
     if #[cfg(target_arch = "x86")] {
         mod x86;

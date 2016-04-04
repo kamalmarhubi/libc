@@ -1029,6 +1029,14 @@ extern {
                    winp: *mut ::winsize) -> ::pid_t;
 }
 
+pub unsafe fn errno() -> ::c_int {
+    *__error()
+}
+
+pub unsafe fn set_errno(e: ::c_int) {
+    *__error() = e;
+}
+
 cfg_if! {
     if #[cfg(any(target_arch = "arm", target_arch = "x86"))] {
         mod b32;
