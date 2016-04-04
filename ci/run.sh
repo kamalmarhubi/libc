@@ -13,7 +13,9 @@ case "$TARGET" in
     ;;
 
   *)
-    cargo build --manifest-path libc-test/Cargo.toml --target $TARGET
+    apt-get install clang
+    cargo build --manifest-path libc-test/Cargo.toml --target $TARGET \
+    || CC=clang cargo build --manifest-path libc-test/Cargo.toml --target $TARGET
     ;;
 esac
 
