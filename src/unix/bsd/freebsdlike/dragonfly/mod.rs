@@ -112,6 +112,7 @@ pub const CLOCK_THREAD_CPUTIME_ID: ::c_ulong = 14;
 pub const CLOCK_PROCESS_CPUTIME_ID: ::c_ulong = 15;
 
 extern {
+    pub fn __dfly_error() -> *mut ::c_int;
     pub fn mprotect(addr: *mut ::c_void, len: ::size_t, prot: ::c_int)
                     -> ::c_int;
     pub fn clock_gettime(clk_id: ::c_ulong, tp: *mut ::timespec) -> ::c_int;
